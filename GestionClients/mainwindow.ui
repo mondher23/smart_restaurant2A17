@@ -13,8 +13,210 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>60</y>
+      <width>351</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="AjouterClient">
+     <attribute name="title">
+      <string>AjouterClient</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>321</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Ajout</string>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>CIN</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Nom</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>100</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Prenom</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_cinc">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>30</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_nom">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>70</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_prenom">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>100</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>140</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Mail</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>200</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Tel</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>170</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Adresse</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_mail">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>130</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_adresse">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>160</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_tel">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>200</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pb_ajouter">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>100</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ajouter</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>AfficherClients</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>SupprimerClient</string>
+     </attribute>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
