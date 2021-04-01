@@ -1,6 +1,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 #include <QString>
+#include <QSqlQueryModel>
 
 class Client
 {
@@ -15,7 +16,7 @@ public:
     QString getadresse();
     int gettel();
 
-    void setcin(int);
+    void setcinc(int);
     void setnom(QString);
     void setprenom(QString);
     void setmail(QString);
@@ -23,6 +24,8 @@ public:
     void settel(int);
 
     bool ajouterClient();
+    QSqlQueryModel* afficherClient();
+    bool supprimerClient(int);
 
 private:
     int cinc,tel;

@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "client.h"
+#include "carte.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,7 +20,15 @@ public:
 private slots:
     void on_pb_ajouter_clicked();
 
+    void on_pb_supprimer_clicked();
+
+    void on_pb_ajouter_2_clicked();
+
+    void on_pb_supprimer_2_clicked();
+
 private:
     Ui::MainWindow *ui;
+    Client C;
+    Carte Cr;
 };
 #endif // MAINWINDOW_H
