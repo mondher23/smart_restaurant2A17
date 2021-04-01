@@ -1,13 +1,7 @@
-#ifndef FOURNISSEURS_H
-#define FOURNISSEURS_H
-
-#include <QDeclarativeItem>
-#include <QMainWindow>
-#include <QObject>
-#include <QQuickItem>
-#include <QSharedDataPointer>
-#include <QWidget>
+#ifndef FOURNISSEUR_H
+#define FOURNISSEUR_H
 #include <QString>
+#include <QSqlQueryModel>
 
 class Fournisseur
 {
@@ -24,6 +18,8 @@ public :
   void setadressef(QString);
   void settelf(QString);
   void setnumcompte(int);
+  bool ajouterfournisseur();
+  QSqlQueryModel* afficherfournisseur();
 private :
 
   int idf;
@@ -34,4 +30,4 @@ private :
 
 };
 
-#endif // FOURNISSEURS_H
+#endif // FOURNISSEUR_H

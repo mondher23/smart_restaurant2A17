@@ -1,7 +1,8 @@
-#include "fournisseurs.h"
-#include <QSqlQuery>
-#include <Qtdebug>
-
+#include <QtDebug>
+#include <QObject>
+#include "connection.h"
+#include "connection.h"
+#include "fournisseur.h"
 
 Fournisseur::Fournisseur()
 {
@@ -13,7 +14,7 @@ numcompte=0;
 
 }
 
-Fournisseur::Fournisseur(int idf,QString nomf,QString adressef,Qstring telf,int numcompte)
+Fournisseur::Fournisseur(int idf,QString nomf,QString adressef,QString telf,int numcompte)
 {
     this->idf=idf;
     this->nomf=nomf;
@@ -37,15 +38,26 @@ void Fournisseur::setnumcompte(int numcompte){this->numcompte=numcompte;}
 
 bool Fournisseur::ajouterfournisseur()
 {
-    bool test=false;
-    QsqlQuery query;
+QString idf_string=QString::number(idf);
+QString numcompte_string=QString::number(numcompte);
+    QSqlQuery query;
     query.prepare("INSERT INTO fournisseur (idf,nomf,adressef,telf,numcompte)"
                   "VALUES (:idf,:nomf,:adressef,:telf,:numcomptef)" );
-    query.bindValue(":idf",idf);
-    query.bindValue(":nomf",nomf);
-    query.bindValue(":adressef",adressef);
-    query.bindValue(":telf",telf);
-    query.bindValue(":numcompte",numcompte);
-    query.exec();
+    query.bindValue(0,idf_string);
+    query.bindValue(1,nomf);
+    query.bindValue(2,adressef);
+    query.bindValue(3,telf);
+    query.bindValue(4,numcompte_string);
+    return query.exec();
+
+}
+QSqlQueryModel* Fournisseur::afficherfournisseur(){
+
+
+    QSqlQueryModel* model= new QSqlQueryModel();
+    model->setQuery("SELECT* FROM fournisseur");
+    return model;
+
+
 
 }
