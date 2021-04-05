@@ -26,6 +26,10 @@ public:
     bool ajouterClient();
     QSqlQueryModel* afficherClient();
     bool supprimerClient(int);
+    bool modifierClient(int);
+    QSqlQueryModel* trierClient();
+    QSqlQueryModel* rechercherClient();
+
 
 private:
     int cinc,tel;

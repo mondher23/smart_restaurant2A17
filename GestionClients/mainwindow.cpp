@@ -95,3 +95,13 @@ void MainWindow::on_pb_supprimer_2_clicked()
         msgBox.setText("Echec de suppression");
         msgBox.exec();
 }
+
+void MainWindow::on_pb_tri_clicked()
+{
+    ui->tab_client->setModel(C.trierClient());
+}
+
+void MainWindow::on_pb_tri_2_clicked()
+{
+    ui->tab_carte->setModel(Cr.trierCarte());
+}

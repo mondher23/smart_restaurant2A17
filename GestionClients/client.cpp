@@ -2,6 +2,7 @@
 #include <QSqlQuery>
 #include <QtDebug>
 #include <QObject>
+#include "connexion.h"
 Client::Client()
 {
     cinc=0;
@@ -50,7 +51,7 @@ bool Client::ajouterClient()
           query.bindValue(3, mail);
           query.bindValue(4, adresse);
           query.bindValue(5, tel_string);
-          query.exec();
+          return query.exec();
 }
 
 bool Client::supprimerClient(int cinc)
@@ -59,7 +60,8 @@ bool Client::supprimerClient(int cinc)
 
           query.prepare("DELETE FROM client WHERE cinc=:cinc");
           query.bindValue(":cinc", cinc);
-          query.exec();
+          return query.exec();
+
 }
 
 QSqlQueryModel* Client::afficherClient()
@@ -78,5 +80,42 @@ QSqlQueryModel* Client::afficherClient()
 
 
 
+    return model;
+}
+
+bool Client::modifierClient(int cinc)
+{
+    QString cinc_string=QString::number(cinc);
+    QString tel_string=QString::number(tel);
+    QSqlQuery query;
+    query.prepare("UPDATE client SET cinc=:cinc, nom=:nom, prenom=:prenom, mail=:mail, adresse=:adresse, tel=:tel WHERE cinc=:cinc");
+    query.bindValue(":cinc", cinc_string);
+    query.bindValue(":nom", nom);
+    query.bindValue(":prenom", prenom);
+    query.bindValue(":mail", mail);
+    query.bindValue(":adresse", adresse);
+    query.bindValue("tel", tel_string);
+    return query.exec();
+}
+
+QSqlQueryModel* Client::trierClient()
+{
+    QSqlQueryModel* model=new QSqlQueryModel();
+
+          model->setQuery("SELECT * FROM client order by nom");
+
+
+    return model;
+}
+
+QSqlQueryModel* Client::rechercherClient(int cinc)
+{
+    QString cinc_string=QString::number(cinc);
+    QSqlQuery query;
+    QSqlQueryModel* model= new QSqlQueryModel();
+    query.prepare("SELECT * FROM client where cinc=:cinc");
+    query.bindValue(":cinc",cinc_string);
+    query.exec();
+    model->setQuery(query);
     return model;
 }

@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="AjouterClient">
      <attribute name="title">
@@ -209,6 +209,19 @@
        </rect>
       </property>
      </widget>
+     <widget class="QPushButton" name="pb_tri">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>220</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>trier</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -262,7 +275,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_5">
      <attribute name="title">
@@ -363,6 +376,19 @@
         <width>331</width>
         <height>191</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_tri_2">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>210</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>trier</string>
       </property>
      </widget>
     </widget>

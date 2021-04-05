@@ -20,7 +20,9 @@ public:
     bool ajouterCarte();
     QSqlQueryModel* afficherCarte();
     bool supprimerCarte(int);
-
+    bool modifierCarte(int);
+    QSqlQueryModel* trierCarte();
+    QSqlQueryModel* rechercherCarte();
 private:
     int cinc,pts;
     QString expire;
