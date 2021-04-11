@@ -46,9 +46,43 @@ QSqlQueryModel* Specialites::afficherspecialite()
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("typesp"));
 return model;
 }
+
+
 bool Specialites::supprimerspecialite(int idsp)
 { QSqlQuery query;
 query.prepare(" Delete from specialites where idsp=:idsp");
 query.bindValue(0,idsp);
 return query.exec(); }
+
+bool Specialites::modifierspecialite(int idsp)
+{QString idsp_string=QString::number(idsp);
+
+QSqlQuery query;
+query.prepare("UPDATE specialites  SET idsp=:idsp, nomsp=:nomsp, typesp=:typesp WHERE idsp=:idsp");
+query.bindValue(0,idsp_string);
+query.bindValue(1,nomsp);
+query.bindValue(2,typesp);
+query.bindValue(3,idsp_string);
+
+return query.exec();}
+
+QSqlQueryModel* Specialites::trierspecialite()
+
+{ QSqlQueryModel* model=new QSqlQueryModel();
+    model->setQuery("SELECT* FROM specialites ORDER by nomsp");
+
+return model;
+}
+
+QSqlQueryModel* Specialites::rechercherspecialite(QString nomsp)
+{
+QSqlQuery query;
+ QSqlQueryModel* model=new QSqlQueryModel();
+query.prepare(" SELECT * from specialites where nomsp=:nomsp");
+query.bindValue(":nomsp",nomsp);
+query.exec();
+model->setQuery(query);
+return model;
+
+}
 

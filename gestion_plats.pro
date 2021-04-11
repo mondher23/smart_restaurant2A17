@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,15 +17,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     connection.cpp \
+    ingredients.cpp \
     main.cpp \
     mainwindow.cpp \
     plats.cpp \
+    smtp.cpp \
     specialites.cpp
 
 HEADERS += \
     connection.h \
+    ingredients.h \
     mainwindow.h \
     plats.h \
+    smtp.h \
     specialites.h
 
 FORMS += \

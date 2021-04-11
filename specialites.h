@@ -21,6 +21,10 @@
             bool ajouterspecialite();
             QSqlQueryModel* afficherspecialite();
             bool supprimerspecialite(int);
+            bool modifierspecialite(int);
+            QSqlQueryModel* trierspecialite();
+            QSqlQueryModel* rechercherspecialite(QString);
+
 
 
         private:
