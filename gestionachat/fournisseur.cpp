@@ -1,7 +1,6 @@
 #include <QtDebug>
 #include <QObject>
 #include "connection.h"
-#include "connection.h"
 #include "fournisseur.h"
 
 Fournisseur::Fournisseur()
@@ -59,5 +58,46 @@ QSqlQueryModel* Fournisseur::afficherfournisseur(){
     return model;
 
 
+}
+bool Fournisseur::supprimerfournisseur(int idf)
+{
+    QSqlQuery query ;
+    query.prepare("Delete from fournisseur where idf=:idf");
+    query.bindValue(0,idf);
+    return query.exec();
+}
+bool Fournisseur::modifierfournisseur(int idf)
+{
+QString idf_string=QString::number(idf);
+QString numcompte_string=QString::number(numcompte);
+    QSqlQuery query;
+    query.prepare("UPDATE fournisseur SET  idf=:idf, nomf=:nomf, adressef=:adressef, telf=:telf, numcompte=:numcompte WHERE idf=:idf " );
+    query.bindValue(":idf",idf_string);
+    query.bindValue(":nomf",nomf);
+    query.bindValue(":adressef",adressef);
+    query.bindValue(":telf",telf);
+    query.bindValue(":numcompte",numcompte_string);
+    query.bindValue(":idf",idf_string);
+    return query.exec();
+
+}
+QSqlQueryModel* Fournisseur::trierfournisseur(QString selon){
+
+
+    QSqlQueryModel* model= new QSqlQueryModel();
+    model->setQuery("SELECT* FROM fournisseur ORDER by "+selon+"");
+    return model;
+
+
+}
+QSqlQueryModel* Fournisseur::rechercherfournisseur(QString txt){
+QSqlQuery query;
+    QSqlQueryModel* model= new QSqlQueryModel();
+
+   query.prepare("SELECT* FROM fournisseur where nomf LIKE '%"+txt+"%'");
+
+   query.exec();
+   model->setQuery(query);
+    return model;
 
 }

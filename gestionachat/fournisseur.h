@@ -20,6 +20,10 @@ public :
   void setnumcompte(int);
   bool ajouterfournisseur();
   QSqlQueryModel* afficherfournisseur();
+  bool supprimerfournisseur(int);
+  bool modifierfournisseur(int);
+  QSqlQueryModel* trierfournisseur(QString);
+  QSqlQueryModel* rechercherfournisseur(QString);
 private :
 
   int idf;
