@@ -22,7 +22,8 @@ public:
     bool supprimerCarte(int);
     bool modifierCarte(int);
     QSqlQueryModel* trierCarte();
-    QSqlQueryModel* rechercherCarte();
+    QSqlQueryModel* rechercherCarte(int);
+    QSqlQueryModel* statistique();
 private:
     int cinc,pts;
     QString expire;

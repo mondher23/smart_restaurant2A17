@@ -4,7 +4,8 @@
 #include <QMainWindow>
 #include "client.h"
 #include "carte.h"
-
+#include "smtp.h"
+#include <QtWidgets/QMessageBox>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -29,6 +30,24 @@ private slots:
     void on_pb_tri_clicked();
 
     void on_pb_tri_2_clicked();
+
+    void on_tab_client_activated(const QModelIndex &index);
+
+    void on_tab_carte_activated(const QModelIndex &index);
+
+    void on_pb_modifier_clicked();
+
+    void on_pb_rechercher_clicked();
+
+    void on_pb_modifier_2_clicked();
+
+    void on_pb_rechercher_2_clicked();
+    void sendMail();
+    void mailSent(QString);
+
+    void on_envoyer_clicked();
+
+
 
 private:
     Ui::MainWindow *ui;

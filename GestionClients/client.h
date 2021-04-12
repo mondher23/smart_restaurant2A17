@@ -28,7 +28,7 @@ public:
     bool supprimerClient(int);
     bool modifierClient(int);
     QSqlQueryModel* trierClient();
-    QSqlQueryModel* rechercherClient();
+    QSqlQueryModel* rechercherClient(int);
 
 
 private:

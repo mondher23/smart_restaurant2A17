@@ -70,10 +70,11 @@ bool Carte::modifierCarte(int cinc)
     QString cinc_string=QString::number(cinc);
     QString pts_string=QString::number(pts);
     QSqlQuery query;
-    query.prepare("UPDATE client SET cinc=:cinc, pts=:pts, expire=:expire WHERE cinc=:cinc");
+    query.prepare("UPDATE carte SET cinc=:cinc, pts=:pts, expire=:expire WHERE cinc=:cinc");
     query.bindValue(":cinc", cinc_string);
-    query.bindValue(":pts", pts);
+    query.bindValue(":pts", pts_string);
     query.bindValue(":expire", expire);
+    query.bindValue(":cinc", cinc_string);
 
     return query.exec();
 }
@@ -100,4 +101,8 @@ QSqlQueryModel* Carte::rechercherCarte(int cinc)
     return model;
 }
 
-
+QSqlQueryModel* Carte::statistique(){
+    QSqlQueryModel* model= new QSqlQueryModel();
+    model->setQuery("SELECT client.cinc,carte.pts,client.nom,client.prenom from client FULL JOIN carte on client.cinc=carte.cinc order by pts desc   ");
+    return model;
+}

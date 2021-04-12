@@ -88,13 +88,14 @@ bool Client::modifierClient(int cinc)
     QString cinc_string=QString::number(cinc);
     QString tel_string=QString::number(tel);
     QSqlQuery query;
-    query.prepare("UPDATE client SET cinc=:cinc, nom=:nom, prenom=:prenom, mail=:mail, adresse=:adresse, tel=:tel WHERE cinc=:cinc");
+    query.prepare("UPDATE client SET cinc=:cinc, nom=:nom, prenom=:prenom, mail=:mail, adresse=:adresse, tel=:tel where cinc=:cinc");
     query.bindValue(":cinc", cinc_string);
     query.bindValue(":nom", nom);
     query.bindValue(":prenom", prenom);
     query.bindValue(":mail", mail);
     query.bindValue(":adresse", adresse);
-    query.bindValue("tel", tel_string);
+    query.bindValue(":tel", tel_string);
+    query.bindValue(":cinc", cinc_string);
     return query.exec();
 }
 
