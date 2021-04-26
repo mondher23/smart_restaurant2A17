@@ -13,10 +13,10 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+ ui->setupUi(this);
  ui->tab_fournisseur->setModel(F.afficherfournisseur());
  ui->tab_achat->setModel(A.afficherachat());
-  ui->tablestat->setModel(A.statistiqueachat());
+ ui->tablestat->setModel(A.statistiqueachat());
 
 }
 
@@ -215,15 +215,19 @@ void MainWindow::on_div_clicked()
 }
 
 void MainWindow::on_pb_ajouter1_clicked()
-{
+{bool test=true;
+    bool controle=true;
     int ida=ui->le_ida->text().toInt();
     float prixa=ui->le_prixa->text().toFloat();
     QString datea=ui->le_datea->text();
     int idf=ui->le_idf2->text().toInt();
-    Achat A(ida,prixa,datea,idf);
-    bool test=A.ajouterachat();
+    if((prixa<100)||(prixa>2500))
+        controle=false;
+    if(controle)
+    {Achat A(ida,prixa,datea,idf);
+     test=A.ajouterachat();}
     QMessageBox msgBox;
-    if (test)
+    if ((test)&&(controle))
     {
         msgBox.setText("ajout avec succes");
         ui->tab_achat->setModel(A.afficherachat());
@@ -231,7 +235,7 @@ void MainWindow::on_pb_ajouter1_clicked()
 
     }
     else
-        msgBox.setText("echec");
+        msgBox.setText("verifiez le prix");
     msgBox.exec();
 }
 
@@ -258,18 +262,24 @@ void MainWindow::on_tab_achat_activated(const QModelIndex &index)
 }
 
 void MainWindow::on_pb_modifer1_clicked()
-{
+{bool test=true;
+    bool controle=true;
     int ida=ui->le_ida1->text().toInt();
     float prixa=ui->le_prixa1->text().toFloat();
     QString datea=ui->le_datea1->text();
     int idf=ui->le_idf3->text().toInt();
+    if((prixa<100)||(prixa>2500))
+        controle=false;
+    if(controle){
     Achat A2(ida,prixa,datea,idf);
-    bool test=A2.modifierachat(A2.getida());
+     test=A2.modifierachat(A2.getida());}
     QMessageBox msgBox;
-    if (test) {
+    if((test)&&(controle)) {
         msgBox.setText("modification avec succes");
         ui->tab_achat->setModel(A.afficherachat());
     }
+    else
+        msgBox.setText("verifiez le prix");
     msgBox.exec();
 }
 

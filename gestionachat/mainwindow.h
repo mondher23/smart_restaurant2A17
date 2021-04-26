@@ -7,6 +7,9 @@
 #include <QFileDialog>
 #include <QtPrintSupport/QPrinter>
 #include <QtWidgets>
+#include <QtCharts>
+#include <QChartView>
+#include <QPieSeries>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
