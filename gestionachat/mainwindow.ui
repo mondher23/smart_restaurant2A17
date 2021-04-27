@@ -76,7 +76,7 @@ QTabBar::tab:selected
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -853,7 +853,7 @@ background-color: rgba(255, 255, 255, 0);
 color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
-         <string>scxez</string>
+         <string>résultat</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="a">
@@ -907,7 +907,7 @@ color: rgb(255, 255, 255);</string>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
